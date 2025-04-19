@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+"use client"
+
+import { useEffect } from "react"
+import { BrowserRouter as Router } from "react-router-dom"
+import AOS from "aos"
+import "aos/dist/aos.css"
+import "./index.css" // ✅ Ensure Tailwind styles are applied
+
+// Components
+import Header from "./components/Header"
+import HeroSection from "./components/HeroSection"
+import ServicesSection from "./components/ServicesSection"
+import ProjectsSection from "./components/ProjectsSection"
+import InternshipSection from "./components/InternshipSection"
+import TestimonialsSection from "./components/TestimonialsSection"
+import ContactSection from "./components/ContactSection"
+import Footer from "./components/Footer"
 
 function App() {
+  // Initialize AOS (Animate On Scroll)
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: false,
+      mirror: true,
+    })
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
+        <Header />
+        <main className="space-y-20">
+          <HeroSection />
+          <ServicesSection />
+          <ProjectsSection />
+          <InternshipSection />
+          <TestimonialsSection />
+          <ContactSection />
+        </main>
+        <Footer />
+      </div>
+    </Router>
+  )
 }
 
-export default App;
+export default App
