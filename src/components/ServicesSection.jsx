@@ -149,8 +149,10 @@ const ServicesSection = () => {
 
   return (
     <section id="services" className="py-20 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-900 to-purple-900/30 pointer-events-none"></div>
-      <div className="container mx-auto px-4 relative z-10">
+{/* <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a1a] via-[#2e2e2e] via-40% via-[#3a3a3a] to-[#4b4b4b] pointer-events-none"></div> */}
+<div className="absolute inset-0 bg-gradient-to-b from-slate-800 to-slate-900 pointer-events-none"></div>
+
+<div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

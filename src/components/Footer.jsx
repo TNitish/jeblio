@@ -5,8 +5,8 @@ import { motion } from "framer-motion"
 const Footer = () => {
   return (
     <footer className="relative bg-slate-900 border-t border-white/10">
-      <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-purple-900/20 pointer-events-none"></div>
-      <div className="container mx-auto px-4 py-12 relative z-10">
+<div className="absolute inset-0 bg-gradient-to-b from-slate-900 to-purple-900/80 pointer-events-none"></div>
+<div className="container mx-auto px-4 py-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <Link

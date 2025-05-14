@@ -16,13 +16,13 @@ const Header = () => {
   }, []);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-slate-900/95 backdrop-blur-md shadow-lg py-2"
-          : "bg-transparent py-4"
-      }`}
-    >
+<header
+  className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    isScrolled
+      ? "bg-gradient-to-r from-white/70 via-pink-300/80 to-violet-500/80 backdrop-blur-md shadow-lg py-2"
+      : "bg-transparent py-4"
+  }`}
+>
       <div className="container mx-auto px-4 flex items-center justify-between">
         <Link to="home" smooth={true} duration={500} className="cursor-pointer">
           <motion.div
@@ -31,8 +31,8 @@ const Header = () => {
             transition={{ duration: 0.5 }}
             className="flex items-center gap-2"
           >
-            <span className="text-2xl font-bold bg-gradient-to-r from-pink-500 to-violet-500 bg-clip-text text-transparent">
-              TechSolutions
+            <span className="text-3xl font-bold bg-gradient-to-r from-pink-500 to-violet-500 bg-clip-text text-transparent">
+              MYkuta Technos
             </span>
           </motion.div>
         </Link>
@@ -59,22 +59,6 @@ const Header = () => {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <Link
-              to="projects"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
-              className="text-sm font-medium hover:text-pink-400 transition-colors cursor-pointer"
-            >
-              Projects
-            </Link>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
           >
             <Link
               to="internships"
@@ -108,6 +92,23 @@ const Header = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
           >
+                        <Link
+              to="projects"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+              className="text-sm font-medium hover:text-pink-400 transition-colors cursor-pointer"
+            >
+              Projects
+            </Link>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+
             <Link
               to="contact"
               spy={true}
@@ -123,8 +124,8 @@ const Header = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-white p-2"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+className="md:hidden text-gray-800 p-2"
+onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? (
             <svg
@@ -166,8 +167,8 @@ const Header = () => {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
-          className="md:hidden bg-slate-800 shadow-lg"
-        >
+          className="md:hidden bg-gradient-to-b from-white/90 via-pink-200/90 to-violet-200/90 backdrop-blur-md shadow-lg"
+          >
           <nav className="container mx-auto px-4 py-4 flex flex-col gap-4">
             <Link
               to="services"
@@ -180,17 +181,7 @@ const Header = () => {
             >
               Services
             </Link>
-            <Link
-              to="projects"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
-              className="text-sm font-medium hover:text-pink-400 transition-colors py-2 cursor-pointer"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Projects
-            </Link>
+
             <Link
               to="internships"
               spy={true}
@@ -214,6 +205,17 @@ const Header = () => {
               Testimonials
             </Link>
             <Link
+              to="projects"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+              className="text-sm font-medium hover:text-pink-400 transition-colors py-2 cursor-pointer"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Projects
+            </Link>
+            <Link
               to="contact"
               spy={true}
               smooth={true}
@@ -224,6 +226,7 @@ const Header = () => {
             >
               Contact Us
             </Link>
+
           </nav>
         </motion.div>
       )}

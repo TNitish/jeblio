@@ -89,8 +89,8 @@ const TestimonialsSection = () => {
 
   return (
     <section id="testimonials" className="py-20 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-purple-900/30 to-slate-900 pointer-events-none"></div>
-      <div className="container mx-auto px-4 relative z-10">
+<div className="absolute inset-0 bg-gradient-to-b from-slate-800 to-slate-900 pointer-events-none"></div>
+<div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

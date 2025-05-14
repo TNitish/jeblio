@@ -114,11 +114,11 @@ const HeroSection = () => {
                   Get Started
                 </button>
               </Link>
-              <Link to="services" spy={true} smooth={true} offset={-70} duration={500}>
+              {/* <Link to="services" spy={true} smooth={true} offset={-70} duration={500}>
                 <button className="px-6 py-3 border border-pink-500/30 rounded-md text-white font-medium hover:bg-pink-500/10 transition-all transform hover:-translate-y-1">
                   Our Services
                 </button>
-              </Link>
+              </Link> */}
             </motion.div>
           </motion.div>
 

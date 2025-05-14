@@ -33,9 +33,9 @@ function App() {
         <main className="space-y-20">
           <HeroSection />
           <ServicesSection />
-          <ProjectsSection />
           <InternshipSection />
           <TestimonialsSection />
+          <ProjectsSection />
           <ContactSection />
         </main>
         <Footer />
