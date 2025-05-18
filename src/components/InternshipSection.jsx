@@ -138,7 +138,7 @@ const InternshipSection = () => {
                 {[
                   "Web Development (React, Angular, Vue.js)",
                   "Mobile App Development (React Native, Flutter)",
-                  "Backend Development (Node.js, Python, Java)",
+                  "Artificial Intelligence & Deep Learning(AI/ML)",
                   "Cloud Computing (AWS, Azure, Google Cloud)",
                   "DevOps & CI/CD Pipelines",
                   "Data Science & Machine Learning",
@@ -158,11 +158,11 @@ const InternshipSection = () => {
                   </motion.li>
                 ))}
               </ul>
-              <div className="flex justify-between items-center border-t border-white/10 pt-4">
-                <div>
+              <div className="flex justify-center items-center border-t border-white/10 pt-4">
+               {/* <div>
                   <p className="text-sm text-gray-400">Starting from</p>
                   <p className="text-2xl font-bold text-white">$299</p>
-                </div>
+                </div>  */}
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}

@@ -6,44 +6,54 @@ import { motion } from "framer-motion"
 const testimonials = [
   {
     id: 1,
-    name: "Sarah Johnson",
-    role: "CTO, HealthTech Inc.",
+    name: "Shamini R",
+    // role: "Frontend Intern, Jeblio",
+    image: "https://ui-avatars.com/api/?name=S&background=ff6b6b&color=ffffff&bold=true",
+    content:
+      "Jeblio gave me a great learning experience. I improved my coding skills and gained real project knowledge. The mentors were very supportive and friendly. It was a wonderful journey!",
+  },
+
+  {
+    id: 5,
+    name: "Sarah",
+    // role: "CTO, HealthTech Inc.",
     image: "https://randomuser.me/api/portraits/women/1.jpg",
     content:
       "Working with this team was a game-changer for our business. They delivered our web application ahead of schedule and exceeded our expectations in terms of quality and performance.",
   },
   {
+    id: 6,
+    name: "Jegathish",
+    // role: "Software Intern, Jeblio",
+    image: "https://avatars.githubusercontent.com/u/9919?s=200&v=4", // Avatar with J-like logo (GitHub-style placeholder)
+    content:
+      "Interning at Jeblio was an amazing experience. I got hands-on training, worked on real projects, and learned how to collaborate as a team. It really boosted my confidence and skills.",
+  },
+  {
     id: 2,
-    name: "Michael Chen",
-    role: "Founder, EduStart",
-    image: "https://randomuser.me/api/portraits/men/2.jpg",
+    name: "Michael",
+    // role: "Founder, EduStart",
+    image: "https://ui-avatars.com/api/?name=M&background=ff6b6b&color=ffffff&bold=true",
     content:
       "The mobile app they developed for our startup has received outstanding feedback from users. Their attention to detail and commitment to excellence is truly impressive.",
   },
   {
     id: 3,
     name: "Priya Sharma",
-    role: "Product Manager, RetailPlus",
-    image: "https://randomuser.me/api/portraits/women/3.jpg",
+    // role: "Product Manager, RetailPlus",
+    image: "https://ui-avatars.com/api/?name=P&background=4a90e2&color=ffffff&bold=true",
     content:
       "Their team's technical expertise and problem-solving skills helped us overcome complex challenges in our e-commerce platform. I highly recommend their services.",
   },
   {
     id: 4,
-    name: "David Wilson",
-    role: "IT Director, FinServe",
-    image: "https://randomuser.me/api/portraits/men/4.jpg",
+    name: "Natesan Thangaraj",
+    // role: "IT Director, FinServe",
+    image: "https://cdn-icons-png.flaticon.com/512/809/809957.png", // Bike icon alternate image
     content:
       "The custom software solution they built has streamlined our operations and significantly reduced costs. Their ongoing support has been exceptional.",
   },
-  {
-    id: 5,
-    name: "Emma Rodriguez",
-    role: "Marketing Director, TravelEase",
-    image: "https://randomuser.me/api/portraits/women/5.jpg",
-    content:
-      "From concept to execution, they delivered a website that perfectly captures our brand and has dramatically increased our conversion rates. A pleasure to work with!",
-  },
+
 ]
 
 const TestimonialsSection = () => {

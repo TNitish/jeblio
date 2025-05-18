@@ -10,29 +10,55 @@ const ContactSection = () => {
     phone: "",
     message: "",
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState(null)
 
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormState((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // Handle form submission - would connect to backend in real implementation
-    console.log("Form submitted:", formState)
-    alert("Thank you for your message! We'll get back to you soon.")
-    setFormState({
-      name: "",
-      email: "",
-      phone: "",
-      message: "",
-    })
+    setIsSubmitting(true)
+    setSubmitStatus(null)
+    
+    try {
+      const response = await fetch('https://b03f-2401-4900-1ce3-576d-d855-78e1-b632-207b.ngrok-free.app/contacts/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formState)
+      })
+      
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status}`)
+      }
+      
+      const data = await response.json()
+      console.log("Form submitted successfully:", data)
+      setSubmitStatus({ type: 'success', message: 'Thank you for your message! We\'ll get back to you soon.' })
+      
+      // Clear form after successful submission
+      setFormState({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+      })
+    } catch (error) {
+      console.error("Error submitting form:", error)
+      setSubmitStatus({ type: 'error', message: 'Sorry, there was an error submitting your message. Please try again later.' })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
     <section id="contact" className="py-20 relative">
-<div className="absolute inset-0 bg-gradient-to-b from-slate-900 to-gray-900 pointer-events-none"></div>
-<div className="container mx-auto px-4 relative z-10">
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-900 to-gray-900 pointer-events-none"></div>
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -61,6 +87,16 @@ const ContactSection = () => {
           >
             <div className="rounded-xl overflow-hidden backdrop-blur-sm bg-white/5 border border-white/10 shadow-xl h-full">
               <div className="p-6">
+                {submitStatus && (
+                  <div className={`mb-6 p-4 rounded-lg ${
+                    submitStatus.type === 'success' 
+                      ? 'bg-green-500/20 text-green-300 border border-green-500/30' 
+                      : 'bg-red-500/20 text-red-300 border border-red-500/30'
+                  }`}>
+                    {submitStatus.message}
+                  </div>
+                )}
+                
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-sm font-medium text-white">
@@ -69,7 +105,7 @@ const ContactSection = () => {
                     <input
                       id="name"
                       name="name"
-                      placeholder="John Doe"
+                      placeholder="Enter your name"
                       value={formState.name}
                       onChange={handleChange}
                       required
@@ -85,7 +121,7 @@ const ContactSection = () => {
                       id="email"
                       name="email"
                       type="email"
-                      placeholder="john@example.com"
+                      placeholder="Enter your mail id"
                       value={formState.email}
                       onChange={handleChange}
                       required
@@ -100,7 +136,7 @@ const ContactSection = () => {
                     <input
                       id="phone"
                       name="phone"
-                      placeholder="+1 (555) 000-0000"
+                      placeholder="Enter your mobile no"
                       value={formState.phone}
                       onChange={handleChange}
                       className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-colors"
@@ -114,7 +150,7 @@ const ContactSection = () => {
                     <textarea
                       id="message"
                       name="message"
-                      placeholder="Tell us about your project..."
+                      placeholder="Tell us about your queries..."
                       rows={5}
                       value={formState.message}
                       onChange={handleChange}
@@ -125,25 +161,40 @@ const ContactSection = () => {
 
                   <motion.button
                     type="submit"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="w-full py-3 px-4 bg-gradient-to-r from-pink-500 to-violet-500 rounded-lg text-white font-medium hover:shadow-lg hover:shadow-pink-500/20 transition-all flex items-center justify-center gap-2"
+                    disabled={isSubmitting}
+                    whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                    whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+                    className={`w-full py-3 px-4 bg-gradient-to-r from-pink-500 to-violet-500 rounded-lg text-white font-medium transition-all flex items-center justify-center gap-2 ${
+                      isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:shadow-lg hover:shadow-pink-500/20'
+                    }`}
                   >
-                    Send Message
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-                      />
-                    </svg>
+                    {isSubmitting ? (
+                      <>
+                        <svg className="animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        Send Message
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-5 w-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                          />
+                        </svg>
+                      </>
+                    )}
                   </motion.button>
                 </form>
               </div>
@@ -185,8 +236,8 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="font-medium text-white">Email</h4>
-                    <p className="text-gray-400">info@techsolutions.com</p>
-                    <p className="text-gray-400">support@techsolutions.com</p>
+                    <p className="text-gray-400">jeblioinfo@gmail.com</p>
+                    {/* <p className="text-gray-400">support@techsolutions.com</p> */}
                   </div>
                 </motion.div>
 
@@ -215,8 +266,8 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="font-medium text-white">Phone</h4>
-                    <p className="text-gray-400">+1 (555) 123-4567</p>
-                    <p className="text-gray-400">+1 (555) 987-6543</p>
+                    <p className="text-gray-400">+91 9952877911</p>
+                    <p className="text-gray-400">+91 8838990844</p>
                   </div>
                 </motion.div>
 
@@ -252,11 +303,11 @@ const ContactSection = () => {
                   <div>
                     <h4 className="font-medium text-white">Office</h4>
                     <p className="text-gray-400">
-                      123 Tech Park, Innovation Street
+                      3a,kavin garden,erode
                       <br />
-                      Silicon Valley, CA 94025
+                      TamilNadu
                       <br />
-                      United States
+                      India
                     </p>
                   </div>
                 </motion.div>

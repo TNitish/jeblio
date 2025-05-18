@@ -31,9 +31,12 @@ const Header = () => {
             transition={{ duration: 0.5 }}
             className="flex items-center gap-2"
           >
-            <span className="text-3xl font-bold bg-gradient-to-r from-pink-500 to-violet-500 bg-clip-text text-transparent">
-              MYkuta Technos
-            </span>
+<span className="flex items-center text-4xl font-bold bg-gradient-to-r from-pink-500 to-violet-500 bg-clip-text text-transparent ml-4">
+  <img src="/jeblio_icon.png" alt="Jeblio Logo" className="w-10 h-10 mr-2" />
+  Jeblio
+</span>
+
+
           </motion.div>
         </Link>
 
@@ -50,8 +53,8 @@ const Header = () => {
               smooth={true}
               offset={-70}
               duration={500}
-              className="text-sm font-medium hover:text-pink-400 transition-colors cursor-pointer"
-            >
+              className="text-base font-medium hover:text-pink-400 transition-colors cursor-pointer"
+              >
               Services
             </Link>
           </motion.div>
@@ -66,8 +69,8 @@ const Header = () => {
               smooth={true}
               offset={-70}
               duration={500}
-              className="text-sm font-medium hover:text-pink-400 transition-colors cursor-pointer"
-            >
+              className="text-base font-medium hover:text-pink-400 transition-colors cursor-pointer"
+              >
               Internships
             </Link>
           </motion.div>
@@ -82,8 +85,8 @@ const Header = () => {
               smooth={true}
               offset={-70}
               duration={500}
-              className="text-sm font-medium hover:text-pink-400 transition-colors cursor-pointer"
-            >
+              className="text-base font-medium hover:text-pink-400 transition-colors cursor-pointer"
+              >
               Testimonials
             </Link>
           </motion.div>
@@ -98,8 +101,8 @@ const Header = () => {
               smooth={true}
               offset={-70}
               duration={500}
-              className="text-sm font-medium hover:text-pink-400 transition-colors cursor-pointer"
-            >
+              className="text-base font-medium hover:text-pink-400 transition-colors cursor-pointer"
+              >
               Projects
             </Link>
           </motion.div>
@@ -109,7 +112,7 @@ const Header = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
           >
 
-            <Link
+            {/* <Link
               to="contact"
               spy={true}
               smooth={true}
@@ -118,7 +121,7 @@ const Header = () => {
               className="px-4 py-2 bg-gradient-to-r from-pink-500 to-violet-500 rounded-md text-white font-medium hover:shadow-lg hover:shadow-pink-500/20 transition-all cursor-pointer"
             >
               Contact Us
-            </Link>
+            </Link> */}
           </motion.div>
         </nav>
 

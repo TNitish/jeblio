@@ -15,7 +15,7 @@ const HeroSection = () => {
 
   useEffect(() => {
     const typed = new Typed(typedTextRef.current, {
-      strings: ["Web Development", "Mobile App Development", "IT Consulting", "Technical Training"],
+      strings: ["Web Development", "Mobile App Development", "Internship Programms","IT Consulting", "Technical Training"],
       typeSpeed: 50,
       backSpeed: 30,
       backDelay: 1500,
@@ -63,14 +63,15 @@ const HeroSection = () => {
             transition={{ duration: 0.8 }}
             className="text-center lg:text-left"
           >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="inline-block px-4 py-1 mb-6 rounded-full bg-gradient-to-r from-pink-500/20 to-violet-500/20 text-pink-300 text-sm font-medium"
-            >
-              Welcome to TechSolutions
-            </motion.div>
+<motion.div
+  initial={{ opacity: 0, scale: 0.8 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 0.5, delay: 0.2 }}
+  className="inline-block px-4 py-1 mb-6 rounded-full bg-gradient-to-r from-pink-500/20 to-violet-500/20 text-pink-600 text-sm font-medium"
+>
+  Welcome to TechSolutions
+</motion.div>
+
             <motion.h1
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -83,26 +84,28 @@ const HeroSection = () => {
               </span>
             </motion.h1>
             <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-              className="text-lg text-gray-300 mb-4"
-            >
-              We specialize in{" "}
-              <span
-                ref={typedTextRef}
-                className="font-medium text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-violet-400"
-              ></span>
-            </motion.p>
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.8 }}
-              className="text-gray-400 mb-8 max-w-lg mx-auto lg:mx-0"
-            >
-              Our expert team delivers innovative solutions tailored to your business needs, helping you stay ahead in
-              the digital landscape.
-            </motion.p>
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ duration: 0.5, delay: 0.6 }}
+  className="text-lg text-gray-800 mb-4"
+>
+  We specialize in{" "}
+  <span
+    ref={typedTextRef}
+    className="font-medium text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-violet-600"
+  ></span>
+</motion.p>
+
+<motion.p
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ duration: 0.5, delay: 0.8 }}
+  className="text-gray-800 mb-8 max-w-lg mx-auto lg:mx-0"
+>
+  Our expert team delivers innovative solutions tailored to your business needs, helping you stay ahead in
+  the digital landscape.
+</motion.p>
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
