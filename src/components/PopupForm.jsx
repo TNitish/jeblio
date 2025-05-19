@@ -33,7 +33,7 @@ const PopupForm = ({ isOpen, onClose, title, formType }) => {
 
       if (formType === "technical training") {
         // Use the same endpoint as ContactSection
-        endpoint = "https://b03f-2401-4900-1ce3-576d-d855-78e1-b632-207b.ngrok-free.app/contacts/";
+        endpoint = "https://f72c-2401-4900-6086-ce59-b928-82ca-2b7d-3e0.ngrok-free.app/contacts/";
         payload = {
           name: formData.name,
           email: formData.email,
@@ -42,7 +42,7 @@ const PopupForm = ({ isOpen, onClose, title, formType }) => {
         };
       } else if (formType === "internship") {
         // Use the internship-specific endpoint
-        endpoint = "https://b03f-2401-4900-1ce3-576d-d855-78e1-b632-207b.ngrok-free.app/submit/";
+        endpoint = "https://f72c-2401-4900-6086-ce59-b928-82ca-2b7d-3e0.ngrok-free.app/submit/";
         payload = {
           name: formData.name,
           email: formData.email,
@@ -53,7 +53,7 @@ const PopupForm = ({ isOpen, onClose, title, formType }) => {
         };
       } else {
         // Default endpoint for other form types
-        endpoint = "https://b03f-2401-4900-1ce3-576d-d855-78e1-b632-207b.ngrok-free.app/contacts/";
+        endpoint = "https://f72c-2401-4900-6086-ce59-b928-82ca-2b7d-3e0.ngrok-free.app/contacts/";
         payload = {
           name: formData.name,
           email: formData.email,
